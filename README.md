@@ -20,3 +20,29 @@ Changed from stock:
 
 - (Occasionally) using RPi with Octoprint for remote printing.
 
+## Resources and Links
+
+### TFT firmware
+See https://www.thingiverse.com/thing:4294049/files. Download file with `fw` in the name
+
+### MKS v1.4 board upgrade
+Mostly following https://www.thingiverse.com/thing:4836744, but:
+
+- Jumpers are connected for STEP/DIR instead of UART mode in the guide. Connect all four jumpers in the left position for each.
+
+- Black reset wire (red/black; red is ground for some reason) is put into the RESET pin. This is the pin that was not connected when connecting TFT wires.
+
+- Custom mount not used (after flashing program)
+
+- Non turbo - use LPC1768 instead of 1769.
+
+- Motor drivers are `TMC2208_STANDALONE`
+
+- `SERIAL_PORT` is 0, `SERIAL_PORT_2` is -1.
+
+- Skip most TMC settings (Since it's not UART).
+
+- Enable misc support (M701/M702, etc.)
+
+### Octoprint
+
